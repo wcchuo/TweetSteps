@@ -33,7 +33,7 @@ class Tweet {
             options: nil,
             completion: {
                 (granted: Bool, error: NSError!) -> Void in
-                if (!granted) {
+                if (!granted) {3
                     print ("Access to Twitter Account denied")
                 } else {
                     let twitterAccounts = accountStore.accountsWithAccountType(twitterAccountType)
@@ -52,14 +52,14 @@ class Tweet {
                         request.account = twitterAccounts.first as! ACAccount
                         request.performRequestWithHandler({
                             (responseData: NSData!, urlResponse: NSHTTPURLResponse!, error: NSError!) -> Void in
-                            self.handlePostTweetResponse(data, urlResponse: urlResponse, error: error)
+                            self.handlePostTweetResponse(responseData, urlResponse: urlResponse, error: error)
                         })
                     }
                 }
         })
     }
     
-    func handlePostTweetResponse(responseData: NSData!, urlResponse: NSHTTPURLResponse!, error: NSError!) {
+    static func handlePostTweetResponse(responseData: NSData!, urlResponse: NSHTTPURLResponse!, error: NSError!) {
         if let dataValue = responseData {
             let jsonObject: AnyObject?
             do {

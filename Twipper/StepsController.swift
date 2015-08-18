@@ -35,10 +35,9 @@ class StepsController: UIViewController {
             print("Update \(data!.numberOfSteps)")
             dispatch_async(dispatch_get_main_queue()) {
                 self.stepCount.text = String(stringInterpolationSegment: data!.numberOfSteps)
-            }
-            self.stepCount.text = String(stringInterpolationSegment: data!.numberOfSteps)
-            if (Int(data!.numberOfSteps) > 0) && (Int(data!.numberOfSteps) % 10 == 0) {
-                Tweet.postTweet(Int(data!.numberOfSteps))
+                if (Int(data!.numberOfSteps) > 0) && (Int(data!.numberOfSteps) % 10 == 0) {
+                    Tweet.postTweet(Int(data!.numberOfSteps))
+                }
             }
         })
     }
