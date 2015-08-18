@@ -42,7 +42,7 @@ class Tweet {
                         return
                     } else {
                         let twitterParams = [
-                            "status" : "My first \(steps) steps! #walkwalk"
+                            "status" : "I just took \(steps) steps! #steptweet #walk"
                         ]
                         let twitterAPIURL = NSURL(string: "https://api.twitter.com/1.1/statuses/update.json")
                         let request = SLRequest(forServiceType: SLServiceTypeTwitter,
